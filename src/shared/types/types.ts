@@ -1,4 +1,4 @@
-export type FakeStoreProductType = {
+export type FSProductType = {
   id: number;
   title: string;
   price: string;

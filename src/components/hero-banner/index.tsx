@@ -1,10 +1,15 @@
+import { FSProductType } from "@/shared/types/types";
 import { Link } from "react-router-dom";
 
-export default function HeroBanner() {
+export type HeroBannerType = {
+  product: FSProductType;
+};
+
+export default function HeroBanner({ product }: HeroBannerType) {
   return (
     <section className="hero-banner-container">
       <div>
-        <p className="beats-solo"> smalltext</p>
+        <p className="beats-solo">{product.id}</p>
         <h3>midtext</h3>
         <h1>largetext</h1>
         <img src="#" alt="headphones" />

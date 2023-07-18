@@ -45,19 +45,18 @@ export default function Home() {
     <section>
       <section>
         {" "}
-        {productState.products.map((product: FSProductType) => (
-          <HeroBanner key={product.id} product={product} />
-        ))}
+        {productState.products.length > 0 && (
+          <HeroBanner
+            key={productState.products[6].id}
+            product={productState.products[6]}
+          />
+        )}
       </section>
       <div className="products-heading">
         <h2> Best Selling Products</h2>
         <p>Speakers of many variations</p>
       </div>
-      <div className="products-container">
-        {productState.products?.map((product, index) => {
-          <Products key={index} product={product} />;
-        })}
-      </div>
+      <div className="products-container"></div>
       <footer>
         <FooterBanner />
       </footer>

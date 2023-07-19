@@ -117,19 +117,26 @@ width: 100%;
  background-color: #ebebeb;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
+  width: 25rem;
 }
 
 .product-name{
   font-weight: 500;
+  width: 25rem;
+  margin-top: 2rem;
+
 }
 .product-price{
   font-weight: 800;
   margin-top: 6px;
   color: black;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
 }
 
 .hero-banner-container{
-  padding: 40px 40px;
+  padding: px 40px;
   background-color: #dcdcdc;
   border-radius: 15px;
   position: relative;

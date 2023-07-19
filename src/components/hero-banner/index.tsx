@@ -17,7 +17,7 @@ export default function HeroBanner({ product }: HeroBannerType) {
           alt="headphones"
           style={{
             width: "7rem",
-            borderRadius: "2rem",
+            borderRadius: "1rem",
           }}
         />
         <div>

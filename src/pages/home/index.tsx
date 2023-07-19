@@ -54,9 +54,13 @@ export default function Home() {
       </section>
       <div className="products-heading">
         <h2> Best Selling Products</h2>
-        <p>Speakers of many variations</p>
+        <p>Products of many variations</p>
       </div>
-      <div className="products-container"></div>
+      <div className="products-container">
+        {productState.products.map((product) => (
+          <Products key={product.id} product={product} />
+        ))}
+      </div>
       <footer>
         <FooterBanner />
       </footer>

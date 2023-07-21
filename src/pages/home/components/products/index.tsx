@@ -10,14 +10,11 @@ export default function Products({ product }: ProductType) {
     <section>
       <Link to={"/"}>
         <div className="product-card">
-          <img
-            src={product.image}
-            width={350}
-            height={350}
-            className="product-image"
-          />{" "}
+          <img src={product.image} width={300} height={300} />{" "}
           <p className="product-name">{product.title}</p>
-          <p className="product-price">{product.price}</p>
+          <p className="product-price">
+            {product.price} <span>&#8364;</span>{" "}
+          </p>
         </div>
       </Link>
     </section>

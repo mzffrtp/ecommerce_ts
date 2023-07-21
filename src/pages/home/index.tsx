@@ -48,7 +48,7 @@ export default function Home() {
         {productState.products.length > 0 && (
           <HeroBanner
             key={productState.products[6].id}
-            product={productState.products[6]}
+            product={productState.products[2]}
           />
         )}
       </section>

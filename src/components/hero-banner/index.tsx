@@ -14,7 +14,6 @@ export default function HeroBanner({ product }: HeroBannerType) {
         <h1>{product.category} </h1>
         <img
           src={product.image}
-          alt="headphones"
           style={{
             width: "7rem",
             borderRadius: "1rem",

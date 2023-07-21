@@ -7,8 +7,13 @@ export type HeroBannerType = {
 
 export default function HeroBanner({ product }: HeroBannerType) {
   return (
-    <section className="hero-banner-container">
-      <div>
+    <section
+      style={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <div className="hero-banner-container">
         <p className="beats-solo">{product.title}</p>
         <h3>Rating:{product.rating?.rate}</h3>
         <h1>{product.category} </h1>

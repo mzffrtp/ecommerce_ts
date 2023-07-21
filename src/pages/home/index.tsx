@@ -1,6 +1,6 @@
-import HeroBanner from "@/components/hero-banner";
+import HeroBanner from "@/pages/home/components/hero-banner";
 import Products from "./components/products";
-import FooterBanner from "@/components/footer/footer-banner";
+import FooterBanner from "@/pages/home/components/footer-banner";
 import useFSApi, { FSApi } from "@/hooks/useApi/useFSApi";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -47,8 +47,8 @@ export default function Home() {
         {" "}
         {productState.products.length > 0 && (
           <HeroBanner
-            key={productState.products[6].id}
-            product={productState.products[2]}
+            key={productState.products[17].id}
+            product={productState.products[17]}
           />
         )}
       </section>
@@ -62,7 +62,10 @@ export default function Home() {
         ))}
       </div>
       <footer>
-        <FooterBanner />
+        <FooterBanner
+          key={productState.products[17].id}
+          product={productState.products[17]}
+        />
       </footer>
     </section>
   );

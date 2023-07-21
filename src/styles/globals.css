@@ -110,6 +110,7 @@ width: 100%;
  display: flex;
  flex-direction: column;
  align-items: center;
+ width: 90%;
 
 }
 .product-card:hover{
@@ -144,7 +145,8 @@ width: 100%;
   position: relative;
   height: 500px;
   line-height: 0.9; 
-  width: 100%;
+  width: 90%;
+  
 
 }
 .hero-banner-container .beats-solo{
@@ -171,6 +173,11 @@ width: 100%;
   color: white;
   font-size: 10em;
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  width: 70%;
+
 }
 .hero-banner-image{
   position: absolute;
@@ -226,7 +233,7 @@ text-align: end;
   height: 400px;
   line-height: 1; 
   color: white;
-  width: 100%;
+  width: 90%;
   margin-top: 120px;
 }
 .banner-desc{
@@ -247,7 +254,6 @@ text-align: end;
 .banner-desc .left h3{
   font-weight: 900;
   font-size: 80px;
-  margin-left: 25px;
 }
 .banner-desc .left p{
   margin:18px;
@@ -257,10 +263,15 @@ text-align: end;
   /* top: -35%;
   left: 8%; */
   top: -25%;
-  left: 25%;
+  left: 43%;
+  width:20rem;
+  border-radius: 2rem;
 }
 .banner-desc .right{
   line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .banner-desc .right h3{
   font-weight: 800;

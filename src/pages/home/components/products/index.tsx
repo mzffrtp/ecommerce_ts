@@ -7,7 +7,12 @@ export type ProductType = {
 
 export default function Products({ product }: ProductType) {
   return (
-    <section>
+    <section
+      style={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <Link to={"/"}>
         <div className="product-card">
           <img src={product.image} width={300} height={300} />{" "}

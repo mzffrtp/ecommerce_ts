@@ -22,7 +22,7 @@ export default function Home() {
     const fetchData = async () => {
       if (productState.products === null) {
         try {
-          const prores: AxiosResponse<FSProductType[]> = await api.products();
+          const prores: AxiosResponse<FSProductType[]> = await api.products(5);
           dispatch(setProducts(prores.data));
         } catch (error) {
           console.log("try kismi", error);
@@ -47,8 +47,8 @@ export default function Home() {
         {" "}
         {productState.products.length > 0 && (
           <HeroBanner
-            key={productState.products[17].id}
-            product={productState.products[17]}
+            key={productState.products[0].id}
+            product={productState.products[0]}
           />
         )}
       </section>
@@ -63,8 +63,8 @@ export default function Home() {
       </div>
       <footer>
         <FooterBanner
-          key={productState.products[17].id}
-          product={productState.products[17]}
+          key={productState.products[0].id}
+          product={productState.products[0]}
         />
       </footer>
     </section>

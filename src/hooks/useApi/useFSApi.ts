@@ -10,15 +10,21 @@ export class FSApi {
   }
 
   async products(limit?: number, sort?: number) {
-    const proRes: AxiosResponse<FSProductType[]> = await this.axiosClient.get<
+    const prosRes: AxiosResponse<FSProductType[]> = await this.axiosClient.get<
       FSProductType[]
-    >("/products", {
+    >("products", {
       params: {
         limit: limit,
         sort: sort,
       },
     });
-    return proRes;
+    return prosRes;
+  }
+
+  async getProduct(productId: number): Promise<FSProductType> {
+    const proRes: AxiosResponse<FSProductType> =
+      await this.axiosClient.get<FSProductType>(`products/${productId}`);
+    return proRes.data;
   }
 }
 

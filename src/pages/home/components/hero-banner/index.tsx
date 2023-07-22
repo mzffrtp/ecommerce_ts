@@ -19,13 +19,14 @@ export default function HeroBanner({ product }: HeroBannerType) {
         <h1>{product.category} </h1>
         <img
           src={product.image}
+          className="hero-banner-image"
           style={{
-            width: "7rem",
+            width: "6rem",
             borderRadius: "1rem",
           }}
         />
         <div>
-          <Link to={`/product/${product.id}`}>
+          <Link to={`/products/${product.id}`}>
             <button type="button">Shop Now</button>
           </Link>
           <div className="desc">

@@ -13,7 +13,7 @@ export default function Products({ product }: ProductType) {
         justifyContent: "center",
       }}
     >
-      <Link to={"/"}>
+      <Link to={`/products/${product.id}`}>
         <div className="product-card">
           <img src={product.image} width={300} height={300} />{" "}
           <p className="product-name">{product.title}</p>

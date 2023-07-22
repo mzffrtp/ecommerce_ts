@@ -166,25 +166,24 @@ width: 100%;
 }
 
 .hero-banner-container h3{
-  font-size: 4rem;
-  margin-top: 4px;
+  font-size: 2rem;
+  margin-top: 1.5rem;
 }
 .hero-banner-container h1{
   color: white;
-  font-size: 10em;
+  font-size: 8rem;
   text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis;
   width: 70%;
+  margin: 1rem 0;
 
 }
-.hero-banner-image{
-  position: absolute;
-  top: 0%;
-  right:20%;
-  width: 450px;
-  height: 450px;
+
+.hero-banner-image:hover{
+  cursor: crosshair;
+  transform:scale(1.1)
 }
 
 
@@ -641,12 +640,7 @@ margin-top: 160px;
   .hero-banner-container{
     height: 560px;
   }
-  .hero-banner-image{
-    width: 77%;
-    height: 62%;
-    top: -2%;
-    right: -6%;
-  }
+ 
   .footer-banner-container{
     height: 560px;
     margin-top: 80px;

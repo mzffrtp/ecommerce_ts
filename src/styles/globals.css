@@ -433,7 +433,7 @@ padding: 30px 65px;
   transform: scale(1.1,1.1);
 }
 .product-detail-container{
-  display: flex;
+display: flex;
  gap: 40px;
  margin: 40px;
  margin-top: 60px;
@@ -474,15 +474,21 @@ padding: 30px 65px;
   color: #f02d34;
   margin-top: 10px;
   display: flex;
-  gap: 5px;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+.reviews-star{
+  display: flex;
   align-items: center;
 }
 
 .product-detail-desc h4{
-  margin-top: 10px;
+  padding: 1rem 0;
 }
 .product-detail-desc p{
   margin-top: 10px;
+  
 }
 .reviews p{
   color: #324d67;
@@ -691,6 +697,7 @@ margin-top: 160px;
   .product-detail-container{
     flex-wrap: wrap;
     }
+    
   .product-detail-container .product-detail-image{
     width: 350px;
     height: 350px;

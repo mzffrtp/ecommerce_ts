@@ -7,8 +7,9 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useEffect } from "react";
 import { AxiosResponse } from "axios";
-import { FSProductType } from "@/shared/types/types";
+import { FSCategoryType, FSProductType } from "@/shared/types/types";
 import { FSProductStateType, setProducts } from "@/redux/productSlice";
+import { setCategories } from "@/redux/categorySlice";
 
 export default function Home() {
   const api: FSApi = useFSApi();
@@ -23,9 +24,12 @@ export default function Home() {
       if (productState.products === null) {
         try {
           const prores: AxiosResponse<FSProductType[]> = await api.products(5);
+          const catRes: AxiosResponse<FSCategoryType> = await api.categories();
+
           dispatch(setProducts(prores.data));
+          dispatch(setCategories(catRes));
         } catch (error) {
-          console.log("try kismi", error);
+          console.log("error", error);
         }
       }
     };

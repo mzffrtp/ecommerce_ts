@@ -10,3 +10,9 @@ export type FSProductType = {
     count: number;
   };
 };
+
+export type FSCategoryType =
+  | "electronics"
+  | "jewelery"
+  | "men's clothing"
+  | "women's clothing";

@@ -1,11 +1,12 @@
 import useFSApi from "@/hooks/useApi/useFSApi";
 import { RootState } from "@/redux/store";
-import { FSProductType } from "@/shared/types/types";
+import { FSCategoryType, FSProductType } from "@/shared/types/types";
 import { useEffect, useState } from "react";
 
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import ProductDetails from "./components/product-details";
+import { setCategories } from "@/redux/categorySlice";
 
 type ProductDetailParamType = {
   productId: string | undefined;
@@ -13,6 +14,8 @@ type ProductDetailParamType = {
 
 export default function ProductDetailPage() {
   const FSProduct = useSelector((state: RootState) => state.productState);
+  const FSCategory = useSelector((state: RootState) => state.categoryState);
+
   const params: Readonly<Partial<ProductDetailParamType>> =
     useParams<ProductDetailParamType>();
   const [product, setProduct] = useState<FSProductType | null>(null);
@@ -37,9 +40,9 @@ export default function ProductDetailPage() {
             ? exitsProductInState
             : api.getProduct(parseInt(params.productId as string))
         );
-
         const FSResults = await Promise.all(promises);
         setProduct(FSResults[0]);
+
         setInit(true);
       }
     })();

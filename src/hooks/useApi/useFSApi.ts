@@ -1,4 +1,4 @@
-import { FSProductType } from "@/shared/types/types";
+import { FSCategoryType, FSProductType } from "@/shared/types/types";
 import axios, { Axios, AxiosResponse } from "axios";
 
 export class FSApi {
@@ -25,6 +25,12 @@ export class FSApi {
     const proRes: AxiosResponse<FSProductType> =
       await this.axiosClient.get<FSProductType>(`products/${productId}`);
     return proRes.data;
+  }
+
+  async categories() {
+    const catRes: AxiosResponse<FSCategoryType> =
+      await this.axiosClient.get<FSCategoryType>("products/categories");
+    return catRes.data;
   }
 }
 

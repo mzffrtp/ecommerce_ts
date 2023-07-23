@@ -15,7 +15,6 @@ export const ProductSlice = createSlice({
   reducers: {
     setProducts: (state, action: PayloadAction<FSProductType[]>) => {
       state.products = action.payload;
-      console.log(state.products);
     },
   },
 });

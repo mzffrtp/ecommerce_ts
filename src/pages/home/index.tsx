@@ -18,13 +18,15 @@ export default function Home() {
   const productState: FSProductStateType = useSelector(
     (state: RootState) => state.productState
   );
-
+  const categoriesState = useSelector(
+    (state: RootState) => state.categoryState
+  );
   useEffect(() => {
     const fetchData = async () => {
       if (productState.products === null) {
         try {
           const prores: AxiosResponse<FSProductType[]> = await api.products(5);
-          const catRes: AxiosResponse<FSCategoryType> = await api.categories();
+          const catRes: string[] = await api.categories();
 
           dispatch(setProducts(prores.data));
           dispatch(setCategories(catRes));

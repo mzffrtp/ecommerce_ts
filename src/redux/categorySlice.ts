@@ -2,11 +2,11 @@ import { FSCategoryType } from "@/shared/types/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export type CategoryStateType = {
-  categories: FSCategoryType | null;
+  categories: FSCategoryType;
 };
 
 const initialState: CategoryStateType = {
-  categories: null,
+  categories: [],
 };
 
 export const categorySlice = createSlice({

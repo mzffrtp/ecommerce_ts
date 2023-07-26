@@ -11,8 +11,4 @@ export type FSProductType = {
   };
 };
 
-export type FSCategoryType =
-  | "electronics"
-  | "jewelery"
-  | "men's clothing"
-  | "women's clothing";
+export type FSCategoryType = string[];

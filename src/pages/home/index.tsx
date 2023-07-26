@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useEffect } from "react";
 import { AxiosResponse } from "axios";
-import { FSCategoryType, FSProductType } from "@/shared/types/types";
+import { FSProductType } from "@/shared/types/types";
 import { FSProductStateType, setProducts } from "@/redux/productSlice";
 import { setCategories } from "@/redux/categorySlice";
 
@@ -18,9 +18,7 @@ export default function Home() {
   const productState: FSProductStateType = useSelector(
     (state: RootState) => state.productState
   );
-  const categoriesState = useSelector(
-    (state: RootState) => state.categoryState
-  );
+
   useEffect(() => {
     const fetchData = async () => {
       if (productState.products === null) {

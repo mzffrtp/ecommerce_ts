@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import ProductDetails from "./components/product-details";
-import { setCategories } from "@/redux/categorySlice";
+import Categories from "./components/categories";
 
 type ProductDetailParamType = {
   productId: string | undefined;
@@ -19,6 +19,7 @@ export default function ProductDetailPage() {
   const params: Readonly<Partial<ProductDetailParamType>> =
     useParams<ProductDetailParamType>();
   const [product, setProduct] = useState<FSProductType | null>(null);
+  const [categories, setCategories] = useState<FSCategoryType[]>([]);
   const api = useFSApi();
   const [init, setInit] = useState<boolean>(false);
 
@@ -40,8 +41,10 @@ export default function ProductDetailPage() {
             ? exitsProductInState
             : api.getProduct(parseInt(params.productId as string))
         );
+        promises.push(api.categories());
         const FSResults = await Promise.all(promises);
-        setProduct(FSResults[0]);
+        setProduct(FSResults[0] as FSProductType);
+        setCategories(FSResults[1] as FSCategoryType[]);
 
         setInit(true);
       }
@@ -57,6 +60,9 @@ export default function ProductDetailPage() {
       <ProductDetails product={product} />
       <div className="small-image-container">
         small image container categorilerden gelecek
+      </div>
+      <div style={{ marginTop: "3rem" }}>
+        <Categories />
       </div>
     </>
   );

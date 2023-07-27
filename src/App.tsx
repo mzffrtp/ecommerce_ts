@@ -4,7 +4,8 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import "./styles/globals.css";
 import ProductDetailPage from "./pages/product-detail-page";
-import Categories from "./pages/product-detail-page/components/categories";
+import Categories from "./pages/home/components/categories";
+import CategoryDetails from "./pages/category-details/category-details";
 
 function App() {
   return (
@@ -15,9 +16,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="products/">
             <Route path=":productId" element={<ProductDetailPage />} />
-          </Route>
-          <Route path="categories" element={<Categories />}>
-            <Route path=":slug" element={<Categories />} />
+            <Route path="categories" element={<Categories />} />
+            <Route path="category/:slug" element={<CategoryDetails />} />
           </Route>
         </Routes>
 

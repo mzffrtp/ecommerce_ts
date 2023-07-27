@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import ProductDetails from "./components/product-details";
-import Categories from "./components/categories";
+import Categories from "../home/components/categories";
 
 type ProductDetailParamType = {
   productId: string | undefined;
@@ -60,9 +60,6 @@ export default function ProductDetailPage() {
       <ProductDetails product={product} />
       <div className="small-image-container">
         small image container categorilerden gelecek
-      </div>
-      <div style={{ marginTop: "3rem" }}>
-        <Categories />
       </div>
     </>
   );

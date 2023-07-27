@@ -10,6 +10,8 @@ import { AxiosResponse } from "axios";
 import { FSProductType } from "@/shared/types/types";
 import { FSProductStateType, setProducts } from "@/redux/productSlice";
 import { setCategories } from "@/redux/categorySlice";
+import Categories from "./components/categories";
+import { stringify } from "querystring";
 
 export default function Home() {
   const api: FSApi = useFSApi();
@@ -65,11 +67,15 @@ export default function Home() {
           <Products key={product.id} product={product} />
         ))}
       </div>
+
       <footer>
         <FooterBanner
           key={productState.products[0].id}
           product={productState.products[0]}
         />
+        <div className="products-heading">
+          <Categories />
+        </div>
       </footer>
     </section>
   );

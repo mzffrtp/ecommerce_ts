@@ -7,17 +7,14 @@ export default function Categories() {
   const FSCategory = useSelector((state: RootState) => state.categoryState);
   return (
     <>
-      <p
-        className="quantity-desc"
-        style={{ display: "grid", placeItems: "center" }}
-      >
+      <h2 style={{ display: "grid", placeItems: "center" }}>
         {" "}
         See other categories
-      </p>
+      </h2>
       <div className={styles.catBtnsWrapper}>
         {FSCategory.categories.map((category, index) => (
-          <Link to={`categorie/${category}`}>
-            <button key={index} type="button" className={styles.catBtns}>
+          <Link to={`products/category/${category}`} key={index}>
+            <button type="button" className={styles.catBtns}>
               {category.toUpperCase()}
             </button>
           </Link>

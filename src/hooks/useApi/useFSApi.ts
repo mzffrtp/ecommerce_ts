@@ -32,6 +32,14 @@ export class FSApi {
       await this.axiosClient.get<FSCategoryType>("products/categories");
     return catRes.data;
   }
+
+  async getCategory(category: string): Promise<FSProductType[]> {
+    const proCatRes: AxiosResponse<FSProductType[]> =
+      await this.axiosClient.get<FSProductType[]>(
+        "products/category/" + category
+      );
+    return proCatRes.data;
+  }
 }
 
 export default function useFSApi(): FSApi {

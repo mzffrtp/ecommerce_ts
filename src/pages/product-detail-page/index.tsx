@@ -2,11 +2,9 @@ import useFSApi from "@/hooks/useApi/useFSApi";
 import { RootState } from "@/redux/store";
 import { FSCategoryType, FSProductType } from "@/shared/types/types";
 import { useEffect, useState } from "react";
-
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import ProductDetails from "./components/product-details";
-import Categories from "../home/components/categories";
 
 type ProductDetailParamType = {
   productId: string | undefined;
@@ -56,11 +54,8 @@ export default function ProductDetailPage() {
     return <p>Product information could´t be found. please contact us</p>;
   }
   return (
-    <>
+    <div>
       <ProductDetails product={product} />
-      <div className="small-image-container">
-        small image container categorilerden gelecek
-      </div>
-    </>
+    </div>
   );
 }

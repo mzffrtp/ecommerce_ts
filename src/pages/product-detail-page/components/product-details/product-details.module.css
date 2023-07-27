@@ -1,0 +1,14 @@
+.proDetWrapper {
+  display: flex;
+  gap: 5rem;
+  margin: 4rem 6rem;
+  color: #324d67;
+}
+@media screen and (max-width:800px) {
+  .proDetWrapper {
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+}

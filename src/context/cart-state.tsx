@@ -26,8 +26,22 @@ export const StateContext: React.FC<StateContextProps> = ({ children }) => {
     setQty((prevQty) => (prevQty > 1 ? prevQty - 1 : prevQty));
   };
 
-  const onAdd = (product: Product, quantity: number) => {
+  const onAdd = (product: CartItem, quantity: number) => {
     const checkProductInCart = cartItems.find((item) => item.id === product.id);
+
+    if (checkProductInCart) {
+      const updatedCartItems = cartItems.map((cartProduct) => {
+        if (cartProduct.id === product.id)
+          return {
+            ...cartProduct,
+            quantity: cartProduct.quantity + quantity,
+          };
+      });
+      setCartItems(updatedCartItems as CartItem[]);
+    } else {
+      product.quantity = quantity;
+      setCartItems([...cartItems, { ...product }]);
+    }
 
     setTotalPrice(
       (prevTotalPrice) => prevTotalPrice + product.price * quantity
@@ -49,6 +63,7 @@ export const StateContext: React.FC<StateContextProps> = ({ children }) => {
         setQty,
         incQty,
         decQty,
+        onAdd,
       }}
     >
       {children}

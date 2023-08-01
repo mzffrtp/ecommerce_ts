@@ -21,4 +21,5 @@ export interface StateContextValue {
   setQty: React.Dispatch<React.SetStateAction<number>>;
   incQty: () => void;
   decQty: () => void;
+  onAdd: (product: CartItem, quantity: number) => void;
 }

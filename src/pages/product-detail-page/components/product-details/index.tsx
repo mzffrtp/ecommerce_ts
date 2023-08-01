@@ -12,7 +12,7 @@ export type ProductDetailsType = {
   product: FSProductType | null;
 };
 export default function ProductDetails({ product }: ProductDetailsType) {
-  const { qty, incQty, decQty } = useStateContext();
+  const { qty, incQty, decQty, onAdd } = useStateContext();
   return (
     <div className="product-detail-container">
       <div className={styles.proDetWrapper}>
@@ -54,7 +54,13 @@ export default function ProductDetails({ product }: ProductDetailsType) {
                 </p>
               </div>
               <div className="buttons">
-                <button type="button" className="add-to-cart">
+                <button
+                  type="button"
+                  className="add-to-cart"
+                  onClick={() => {
+                    onAdd;
+                  }}
+                >
                   Add to Cart
                 </button>
                 <button type="button" className="buy-now">

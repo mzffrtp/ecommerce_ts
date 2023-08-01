@@ -1,4 +1,4 @@
-import { FSCategoryType } from "@/shared/types/types";
+import { FSCategoryType } from "@/shared/general-types/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export type CategoryStateType = {

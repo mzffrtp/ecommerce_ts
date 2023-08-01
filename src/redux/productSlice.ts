@@ -1,4 +1,4 @@
-import { FSProductType } from "./../shared/types/types";
+import { FSProductType } from "../shared/general-types/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export type FSProductStateType = {

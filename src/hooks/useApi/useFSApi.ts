@@ -1,4 +1,4 @@
-import { FSCategoryType, FSProductType } from "@/shared/types/types";
+import { FSCategoryType, FSProductType } from "@/shared/general-types/types";
 import axios, { Axios, AxiosResponse } from "axios";
 
 export class FSApi {

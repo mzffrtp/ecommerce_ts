@@ -1,4 +1,4 @@
-import { FSProductType } from "@/shared/types/types";
+import { FSProductType } from "@/shared/general-types/types";
 import {
   AiFillStar,
   AiOutlineMinus,
@@ -6,11 +6,13 @@ import {
   AiOutlineStar,
 } from "react-icons/ai";
 import styles from "./product-details.module.css";
+import { useStateContext } from "@/context/cart-state";
 
 export type ProductDetailsType = {
   product: FSProductType | null;
 };
 export default function ProductDetails({ product }: ProductDetailsType) {
+  const { qty, incQty, decQty } = useStateContext();
   return (
     <div className="product-detail-container">
       <div className={styles.proDetWrapper}>
@@ -42,11 +44,11 @@ export default function ProductDetails({ product }: ProductDetailsType) {
               <div className="quantity">
                 <h4>Quantity:</h4>
                 <p className="quantity-desc">
-                  <span className="minus">
+                  <span className="minus" onClick={decQty}>
                     <AiOutlineMinus />
                   </span>
-                  <span className="num"> qty</span>
-                  <span className="plus">
+                  <span className="num">{qty}</span>
+                  <span className="plus" onClick={incQty}>
                     <AiOutlinePlus />
                   </span>
                 </p>

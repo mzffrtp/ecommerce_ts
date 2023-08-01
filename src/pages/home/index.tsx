@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useEffect } from "react";
 import { AxiosResponse } from "axios";
-import { FSProductType } from "@/shared/types/types";
+import { FSProductType } from "@/shared/general-types/types";
 import { FSProductStateType, setProducts } from "@/redux/productSlice";
 import { setCategories } from "@/redux/categorySlice";
 import Categories from "./components/categories";

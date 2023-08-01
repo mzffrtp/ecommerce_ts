@@ -1,4 +1,8 @@
-import { CartItem, StateContextValue } from "@/shared/cart-types/cart-types";
+import {
+  CartItem,
+  StateContextValue,
+  Product,
+} from "@/shared/cart-types/cart-types";
 import { createContext, useContext, useState } from "react";
 
 interface StateContextProps {
@@ -14,6 +18,22 @@ export const StateContext: React.FC<StateContextProps> = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
 
+  const incQty = () => {
+    setQty((prevQty) => prevQty + 1);
+  };
+
+  const decQty = () => {
+    setQty((prevQty) => (prevQty > 1 ? prevQty - 1 : prevQty));
+  };
+
+  const onAdd = (product: Product, quantity: number) => {
+    const checkProductInCart = cartItems.find((item) => item.id === product.id);
+
+    setTotalPrice(
+      (prevTotalPrice) => prevTotalPrice + product.price * quantity
+    );
+    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+  };
   return (
     <Context.Provider
       value={{
@@ -27,6 +47,8 @@ export const StateContext: React.FC<StateContextProps> = ({ children }) => {
         setTotalQuantities,
         qty,
         setQty,
+        incQty,
+        decQty,
       }}
     >
       {children}

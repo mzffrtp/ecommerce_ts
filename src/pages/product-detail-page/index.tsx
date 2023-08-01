@@ -1,6 +1,6 @@
 import useFSApi from "@/hooks/useApi/useFSApi";
 import { RootState } from "@/redux/store";
-import { FSCategoryType, FSProductType } from "@/shared/types/types";
+import { FSCategoryType, FSProductType } from "@/shared/general-types/types";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";

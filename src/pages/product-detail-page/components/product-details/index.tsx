@@ -7,7 +7,6 @@ import {
 } from "react-icons/ai";
 import styles from "./product-details.module.css";
 import { useStateContext } from "@/context/cart-state";
-import { CarouselItem } from "react-bootstrap";
 
 export type ProductDetailsType = {
   product: FSProductType | null;

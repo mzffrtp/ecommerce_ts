@@ -6,6 +6,7 @@ export interface Product {
 
 export interface CartItem extends Product {
   quantity: number;
+  image?: string;
 }
 
 export interface StateContextValue {

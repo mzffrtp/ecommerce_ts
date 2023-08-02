@@ -21,5 +21,6 @@ export const convertToCartItem = (product: FSProductType): CartItem => {
     name: product.title,
     price: product.price,
     quantity: 1,
+    image: product.image,
   };
 };

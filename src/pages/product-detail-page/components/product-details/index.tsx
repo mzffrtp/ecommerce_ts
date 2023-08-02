@@ -1,4 +1,4 @@
-import { FSProductType } from "@/shared/general-types/types";
+import { FSProductType, convertToCartItem } from "@/shared/general-types/types";
 import {
   AiFillStar,
   AiOutlineMinus,
@@ -7,6 +7,7 @@ import {
 } from "react-icons/ai";
 import styles from "./product-details.module.css";
 import { useStateContext } from "@/context/cart-state";
+import { CarouselItem } from "react-bootstrap";
 
 export type ProductDetailsType = {
   product: FSProductType | null;
@@ -58,7 +59,10 @@ export default function ProductDetails({ product }: ProductDetailsType) {
                   type="button"
                   className="add-to-cart"
                   onClick={() => {
-                    onAdd;
+                    if (product) {
+                      const cartItem = convertToCartItem(product);
+                      onAdd(cartItem, qty);
+                    }
                   }}
                 >
                   Add to Cart

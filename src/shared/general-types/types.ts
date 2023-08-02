@@ -1,7 +1,9 @@
+import { CartItem } from "../cart-types/cart-types";
+
 export type FSProductType = {
   id: number;
   title: string;
-  price: string;
+  price: number;
   category: string;
   description: string;
   image: string;
@@ -12,3 +14,12 @@ export type FSProductType = {
 };
 
 export type FSCategoryType = string[];
+
+export const convertToCartItem = (product: FSProductType): CartItem => {
+  return {
+    id: product.id,
+    name: product.title,
+    price: product.price,
+    quantity: 1,
+  };
+};

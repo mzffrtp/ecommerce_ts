@@ -4,6 +4,7 @@ import {
   Product,
 } from "@/shared/cart-types/cart-types";
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 
 interface StateContextProps {
   children: ReactNode;
@@ -47,6 +48,7 @@ export const StateContext: React.FC<StateContextProps> = ({ children }) => {
       (prevTotalPrice) => prevTotalPrice + product.price * quantity
     );
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+    toast.success(`${product.quantity} ${product.name} added to the cart`);
   };
   return (
     <Context.Provider

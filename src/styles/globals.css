@@ -558,6 +558,7 @@ padding: 6px;
 }
 .quantity-desc .minus{
   border-right: 1px solid gray;
+  height:max-content;
   color: #f02d34;
 }
 .quantity-desc .num{
@@ -714,7 +715,20 @@ margin-top: 160px;
   }
   .product{
     padding: 20px 5px;
+    flex-direction: column;
+  }
 
+  .quantity-desc{
+    width: 9rem;
+  }
+  .quantity-desc .minus{
+    width: 2rem;
+   }
+  .quantity-desc .num{
+   width: 3rem;
+  }
+  .quantity-desc .plus{
+    width: 2rem;
   }
   .product .cart-product-image{
     width: 25%;

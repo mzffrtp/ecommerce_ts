@@ -52,7 +52,7 @@ export default function Cart() {
                       <h4>${cartProduct.price}</h4>
                     </div>
                   </div>
-                  <div className="flex bottom">
+                  <div className="flex">
                     <div>
                       <p className="quantity-desc">
                         <span className="minus">

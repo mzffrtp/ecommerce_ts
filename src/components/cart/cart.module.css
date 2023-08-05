@@ -1,0 +1,12 @@
+.cartQuaDesc {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem;
+}
+
+@media screen and (max-width:800px) {
+    .cartQuaDesc{
+    margin: 0.5rem 0.5rem 1rem 0.5rem;
+
+    }
+}

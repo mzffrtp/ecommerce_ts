@@ -715,7 +715,6 @@ margin-top: 160px;
   }
   .product{
     padding: 20px 5px;
-    flex-direction: column;
   }
 
   .quantity-desc{

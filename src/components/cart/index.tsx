@@ -8,6 +8,7 @@ import {
 } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import styles from "./cart.module.css";
 
 export default function Cart() {
   const { setShowCart, totalQuantities, cartItems, totalPrice } =
@@ -44,31 +45,40 @@ export default function Cart() {
           <>
             <div className="product-container">
               {cartItems.map((cartProduct) => (
-                <div className="product" key={cartProduct.id}>
-                  <img src={cartProduct.image} className="cart-product-image" />
-                  <div className="item-desc">
-                    <div className="flex top">
-                      <h5>{cartProduct.name}</h5>
-                      <h4>${cartProduct.price}</h4>
+                <>
+                  <div className="product" key={cartProduct.id}>
+                    <img
+                      src={cartProduct.image}
+                      className="cart-product-image"
+                    />
+                    <div className="item-desc">
+                      <div className="flex top">
+                        <h5>{cartProduct.name}</h5>
+                        <h4>${cartProduct.price}</h4>
+                      </div>
                     </div>
                   </div>
                   <div className="flex">
-                    <div>
-                      <p className="quantity-desc">
-                        <span className="minus">
-                          <AiOutlineMinus />
-                        </span>
-                        <span className="num">{cartProduct.quantity}</span>
-                        <span className="plus">
-                          <AiOutlinePlus />
-                        </span>
-                      </p>
+                    <div className={styles.cartQuaDesc}>
+                      <div>
+                        <p className="quantity-desc">
+                          <span className="minus">
+                            <AiOutlineMinus />
+                          </span>
+                          <span className="num">{cartProduct.quantity}</span>
+                          <span className="plus">
+                            <AiOutlinePlus />
+                          </span>
+                        </p>
+                      </div>
+                      <div>
+                        <button>
+                          <TiDeleteOutline size={"1.5rem"} />
+                        </button>
+                      </div>
                     </div>
-                    <button>
-                      <TiDeleteOutline />
-                    </button>
                   </div>
-                </div>
+                </>
               ))}
             </div>
             <div className="cart-bottom">

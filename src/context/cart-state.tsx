@@ -50,6 +50,44 @@ export const StateContext: React.FC<StateContextProps> = ({ children }) => {
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
     toast.success(`${product.quantity} ${product.name} added to the cart`);
   };
+  let foundProduct: CartItem | undefined;
+  let index: number;
+
+  const toggleCartItemQuantity = (id: number, value: "inc" | "dec"): void => {
+    foundProduct = cartItems.find((item) => item.id === id);
+    index = cartItems.findIndex((product) => product.id === id);
+
+    if (!foundProduct) {
+      console.error("Error occurred in cart with product quantity!");
+      return; // Exit the function if foundProduct is not valid
+    }
+
+    const updatedCartItems = [...cartItems]; // Create a copy of cartItems
+    if (value === "inc") {
+      updatedCartItems[index] = {
+        ...foundProduct,
+        quantity: foundProduct.quantity + 1,
+      };
+      setTotalPrice(
+        (prevTotalPrice) => prevTotalPrice + (foundProduct?.price || 0)
+      );
+      setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1);
+    } else if (value === "dec") {
+      if (foundProduct.quantity > 1) {
+        updatedCartItems[index] = {
+          ...foundProduct,
+          quantity: foundProduct.quantity - 1,
+        };
+        setTotalPrice(
+          (prevTotalPrice) => prevTotalPrice - (foundProduct?.price || 0)
+        );
+        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1);
+      }
+    }
+
+    setCartItems(updatedCartItems); // Update cartItems with the updated array
+  };
+
   return (
     <Context.Provider
       value={{
@@ -66,6 +104,7 @@ export const StateContext: React.FC<StateContextProps> = ({ children }) => {
         incQty,
         decQty,
         onAdd,
+        toggleCartItemQuantity,
       }}
     >
       {children}

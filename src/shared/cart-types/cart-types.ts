@@ -23,4 +23,5 @@ export interface StateContextValue {
   incQty: () => void;
   decQty: () => void;
   onAdd: (product: CartItem, quantity: number) => void;
+  toggleCartItemQuantity: (id: number, value: "inc" | "dec") => void;
 }

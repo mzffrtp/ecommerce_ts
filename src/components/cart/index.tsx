@@ -11,8 +11,13 @@ import { Link } from "react-router-dom";
 import styles from "./cart.module.css";
 
 export default function Cart() {
-  const { setShowCart, totalQuantities, cartItems, totalPrice } =
-    useStateContext();
+  const {
+    setShowCart,
+    totalQuantities,
+    cartItems,
+    totalPrice,
+    toggleCartItemQuantity,
+  } = useStateContext();
   return (
     <div className="cart-wrapper">
       <div className="cart-container">
@@ -62,18 +67,28 @@ export default function Cart() {
                     <div className={styles.cartQuaDesc}>
                       <div>
                         <p className="quantity-desc">
-                          <span className="minus">
+                          <span
+                            className="minus"
+                            onClick={() => {
+                              toggleCartItemQuantity(cartProduct.id, "dec");
+                            }}
+                          >
                             <AiOutlineMinus />
                           </span>
                           <span className="num">{cartProduct.quantity}</span>
-                          <span className="plus">
+                          <span
+                            className="plus"
+                            onClick={() => {
+                              toggleCartItemQuantity(cartProduct.id, "inc");
+                            }}
+                          >
                             <AiOutlinePlus />
                           </span>
                         </p>
                       </div>
                       <div>
-                        <button>
-                          <TiDeleteOutline size={"1.5rem"} />
+                        <button type="button" className="remove-item">
+                          <TiDeleteOutline />
                         </button>
                       </div>
                     </div>

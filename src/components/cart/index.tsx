@@ -17,6 +17,7 @@ export default function Cart() {
     cartItems,
     totalPrice,
     toggleCartItemQuantity,
+    onRemove,
   } = useStateContext();
   return (
     <div className="cart-wrapper">
@@ -87,7 +88,11 @@ export default function Cart() {
                         </p>
                       </div>
                       <div>
-                        <button type="button" className="remove-item">
+                        <button
+                          type="button"
+                          className="remove-item"
+                          onClick={() => onRemove(cartProduct)}
+                        >
                           <TiDeleteOutline />
                         </button>
                       </div>

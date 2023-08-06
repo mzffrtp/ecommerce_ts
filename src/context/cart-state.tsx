@@ -88,6 +88,22 @@ export const StateContext: React.FC<StateContextProps> = ({ children }) => {
     setCartItems(updatedCartItems); // Update cartItems with the updated array
   };
 
+  const onRemove = (cartItem: CartItem) => {
+    foundProduct = cartItems.find((item) => item.id === cartItem.id);
+    const cartItemsAfterRemove = cartItems.filter(
+      (item) => item.id !== cartItem.id
+    );
+    setCartItems(cartItemsAfterRemove);
+    setTotalPrice(
+      (prevTotalPrice) =>
+        prevTotalPrice -
+        (foundProduct?.price as number) * (foundProduct?.quantity as number)
+    );
+    setTotalQuantities(
+      (prevTotalQuantities) =>
+        prevTotalQuantities - (foundProduct?.quantity as number)
+    );
+  };
   return (
     <Context.Provider
       value={{
@@ -105,6 +121,7 @@ export const StateContext: React.FC<StateContextProps> = ({ children }) => {
         decQty,
         onAdd,
         toggleCartItemQuantity,
+        onRemove,
       }}
     >
       {children}

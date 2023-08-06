@@ -107,9 +107,11 @@ export default function Cart() {
                 <h3>${totalPrice}</h3>
               </div>
               <div className="btn-container">
-                <button type="button" className="btn">
-                  Pay with Stripe
-                </button>
+                <Link to={"https://buy.stripe.com/test_3cs28jfpudGHag83cc"}>
+                  <button type="button" className="btn">
+                    Pay with Stripe
+                  </button>
+                </Link>
               </div>
             </div>
           </>

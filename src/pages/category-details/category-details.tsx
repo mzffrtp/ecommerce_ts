@@ -1,4 +1,4 @@
 export default function CategoryDetails() {
-  // display diffrent categories
-  return <p>category details</p>;
+  // TODO: display diffrent categories
+  return <p></p>;
 }

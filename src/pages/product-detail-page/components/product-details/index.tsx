@@ -7,12 +7,14 @@ import {
 } from "react-icons/ai";
 import styles from "./product-details.module.css";
 import { useStateContext } from "@/context/cart-state";
+import { CartItem } from "@/shared/cart-types/cart-types";
 
 export type ProductDetailsType = {
   product: FSProductType | null;
 };
 export default function ProductDetails({ product }: ProductDetailsType) {
-  const { qty, incQty, decQty, onAdd } = useStateContext();
+  const { qty, incQty, decQty, onAdd, setShowCart } = useStateContext();
+
   return (
     <div className="product-detail-container">
       <div className={styles.proDetWrapper}>
@@ -66,7 +68,17 @@ export default function ProductDetails({ product }: ProductDetailsType) {
                 >
                   Add to Cart
                 </button>
-                <button type="button" className="buy-now">
+                <button
+                  type="button"
+                  className="buy-now"
+                  onClick={() => {
+                    if (product) {
+                      const cartItem = convertToCartItem(product);
+                      onAdd(cartItem, qty);
+                      setShowCart(true);
+                    }
+                  }}
+                >
                   Buy Now
                 </button>
               </div>

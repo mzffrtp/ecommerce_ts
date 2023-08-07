@@ -104,7 +104,7 @@ export default function Cart() {
             <div className="cart-bottom">
               <div className="total">
                 <h3>Subtotal:</h3>
-                <h3>${totalPrice}</h3>
+                <h3>${totalPrice.toFixed(3)}</h3>
               </div>
               <div className="btn-container">
                 <Link to={"https://buy.stripe.com/test_3cs28jfpudGHag83cc"}>

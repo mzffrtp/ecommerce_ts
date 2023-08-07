@@ -6,6 +6,7 @@ import "./styles/globals.css";
 import ProductDetailPage from "./pages/product-detail-page";
 import Categories from "./pages/home/components/categories";
 import CategoryDetails from "./pages/category-details/category-details";
+import Success from "./pages/success/success";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="categories" element={<Categories />} />
           <Route path="category/:slug" element={<CategoryDetails />} />
         </Route>
+        <Route path="success" element={<Success />} />
       </Routes>
       <Footer />
     </BrowserRouter>
